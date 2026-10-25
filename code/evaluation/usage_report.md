@@ -3,9 +3,9 @@
 **Challenge**: HackerRank Orchestrate — October 2026  
 **Challenge Title**: Ghost Data Still Exists  
 **Execution Target**: Complete Dataset Audit Run (`output.csv`)  
-**Timestamp**: 2026-10-24  
+**Timestamp**: 2026-10-25  
 **Harness / Tool**: antigravity-ide  
-**Model**: Gemini 3.8 Flash (Medium)  
+**Model**: Gemini 3.8 Flash  
 
 ---
 
@@ -21,7 +21,7 @@ All temporal reconstructions, SQL schema queries, identity graph resolutions, re
 
 ## 2. Quantitative Model and Token Usage Metrics
 
-As mandated by challenge guidelines, the following table summarizes the exact resource consumption for the final execution run over all 518 cases that generated `output.csv`:
+As mandated by challenge guidelines, the following table summarizes the exact resource consumption for the final execution run:
 
 | Metric | Measured Value | Notes |
 |---|---|---|
@@ -45,7 +45,8 @@ The entire solution runs self-contained in a standard Python 3 environment witho
 - **Operating System**: Microsoft Windows 11 / Windows Server
 - **Python Version**: Python 3.12.x
 - **Execution Command**: `python code/main.py dataset/deletion_requests.csv output.csv`
-- **Execution Time**: ~8.2 seconds for the complete 518-case dataset (~15.8 ms per case).
+- **Execution Time**: ~8.2 seconds for the complete 518-case dataset (~15.8 ms per case); ~0.52 seconds for the 32 sample requests.
+- **Unit Test Execution**: 20 regression and edge case tests executed in 2.11 seconds via `python code/evaluation/test_core_engine.py`.
 
 ### 3.2 Software Libraries Used
 - **Standard Library Modules**:
@@ -55,6 +56,7 @@ The entire solution runs self-contained in a standard Python 3 environment witho
   - `re`: High-performance regular expression matching for log stream parsing and identifier extraction.
   - `os`, `sys`: Filesystem path management and CLI parameter handling.
   - `collections.defaultdict`: Identity graph and resource index mapping.
+  - `unittest`: Native regression test framework.
 - **Third-Party Open-Source Modules**:
   - `pypdf`: Pure-Python PDF parsing library used for inspecting document text streams in billing statements and account exports (`dataset/evidence/documents/`).
 
